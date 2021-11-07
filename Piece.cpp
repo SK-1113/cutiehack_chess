@@ -24,6 +24,19 @@ class Piece{
             this->pieceChar = p2->getChar();
             this->pieceColor = p2->getColor();
         }
-        bool move(Piece* p2);
+        void setNull()
+        {
+            this->pieceColor = 'N';
+            this->pieceChar = 'N';
+        }
+        void move(Piece &p2)
+        {
+            if (isMovable(&p2))
+            {
+                &p2.setColor(this->pieceColor);
+                &p2.setChar(this->pieceChar);
+                setNull();
+            }
+        };
 
 }
